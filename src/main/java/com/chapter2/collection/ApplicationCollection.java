@@ -3,7 +3,7 @@ package com.chapter2.collection;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class CollectionApplication {
+public class ApplicationCollection {
 
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("application-context-collection.xml");

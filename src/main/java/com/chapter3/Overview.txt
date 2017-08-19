@@ -1,0 +1,5 @@
+Recommended approach when to use Annotation or XML
+
+Use XML when working with 3rd party OR the objects that you do not have control over.
+
+Classes that we are creating that becomes bean use Annotation

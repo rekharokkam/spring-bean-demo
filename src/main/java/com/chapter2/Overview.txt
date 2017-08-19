@@ -26,3 +26,5 @@ There are 2 ways to resolve the issue of bean scope prototype from bean scope Si
 
 Make the singleton Bean implement ApplicationContextAware - check the examples
 Use method injection to resolve this issue.
+
+If a bean has both constructor and property Injections then both are invoked when bean is created.

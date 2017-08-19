@@ -9,6 +9,7 @@
 	<configs>
 		<config>src/main/resources/application-context-collection.xml</config>
 		<config>src/main/resources/application-context-autowiring.xml</config>
+		<config>src/main/resources/application-context-annotations.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
