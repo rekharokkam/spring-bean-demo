@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- If there is only one instance of a Class then there is no need to provide an ID. Since a Bean is a singleton every Class that uses this bean gets the same instance -->
+	<bean class="com.chapter2.BeanA"/>
+	
+	<!-- 2 beans below are different as they are instantiated separately and identified through different Ids-->
+	<bean class="com.chapter2.BeanA" id="bean1"/>
+	<bean class="com.chapter2.BeanA" id="bean2"/>
+	
+	<!-- A bean can have a name. id attribute has certain restrictions XML mandates BUT those are not applicable to name attribute. Also there can be more than 1 name for the same bean. Bean can be instantiated either by id or by name property-->
+	<bean class="com.chapter2.BeanA" id="bean3" name="_beanA _beanB"/>
+	
+	<!-- Testing constructor beans -->
+	<bean class="com.chapter2.ConstructorBean" id="singleStringBean">
+		<constructor-arg type="String" value="One"/>
+	</bean>
+	
+	<bean class="com.chapter2.ConstructorBean" id="twoStringBean">
+		<constructor-arg type="String" value="One" index="1"/>
+		<constructor-arg type="String" value="Two" index="0"/>
+	</bean>
+
+	<bean class="com.chapter2.ConstructorBean" id="intBean">
+		<constructor-arg type="int" value="25"/>
+	</bean>
+	
+	<!-- Constructors that take other Bean Objects -->
+	<bean class="com.chapter2.OuterObj" id="outerObj">
+		<constructor-arg type="com.chapter2.ArgumentObj"><!-- type attribute is optional -->
+			<bean class="com.chapter2.ArgumentObj"/><!-- Having a bean inside the constructor element restricts the access of the bean to the constructor hence cannot be accessed outside the constructor. This is inner bean -->
+		</constructor-arg>
+	</bean>
+
+	<bean class="com.chapter2.ArgumentObj" id="argumentObj"/>
+	
+	<bean class="com.chapter2.OuterObj" id="outerObjRef">
+		<constructor-arg type="com.chapter2.ArgumentObj" ref="argumentObj"/>
+		
+		<!-- Another of usong ref tag -->
+		<!-- Inside the constructor-arg element instead of as an attribute -->
+		<!-- ref bean="argumentObj" -->
+		
+		<!-- can use name attribute on this element instead of type attribute but the only caveat for this approach is it should be run with debug mode ON. -->
+		<!-- constructor-arg name="argumentObj" ref="argumentObj"/-->
+		
+	</bean>
+	
+	<!-- Setter Injection -->
+	<!-- Constructor Injection is good when the Bean needs to have all the dependencies resolved when it is created. Setter Injection is good since the dependencies can be delayed until needed. -->
+	<bean id = "attributeObj" class="com.chapter2.AttributeObj"/>
+	
+	<bean class="com.chapter2.SetterObj">
+		<property name="age" value="23"/>
+		<property name="attributeObj" ref="attributeObj">
+			
+		</property>
+	</bean>
+	
+	<!-- Pname and CName Combination. -->
+	<!-- Traditional way of configuring -->
+	<!-- bean id="cNameObj" class="com.chapter2.CNameObj">
+		<constructor-arg value="Test"/>
+	</bean>
+
+	<bean class="com.chapter2.PNameObj">
+		<property name="age" value="23"/>
+		<property name="cnameObj" ref="cNameObj"/>
+	</bean -->
+	<!-- Pname Cname way of configuring -->
+	<bean id="cNameObjNew" class="com.chapter2.CNameObj" c:value1="Test"/> <!-- can also use c:_0 -->
+	<bean class="com.chapter2.PNameObj" p:age="23" p:cnameObj-ref="cNameObjNew"/>	
+	
+	<!-- Using factory method to get Instance. Beans that cannot be instantiated through constructor -->
+	<bean class="com.chapter2.FactoryMethodUserObj" id="factoryMethodUserObj">
+		<constructor-arg>
+			<bean class="java.util.Calendar" factory-method="getInstance"/>
+		</constructor-arg>
+	</bean>
+	
+	<!-- Using a factory class that has no static method to create the Object. Beans that cannot be instantiated through constructor -->
+	<bean id="factoryWithoutStaticGetInstance" class="com.chapter2.FactoryWithoutStaticGetInstance"/>
+	<bean class="com.chapter2.FromFactoryWithoutStaticGetInstance" factory-bean="factoryWithoutStaticGetInstance" factory-method="getBeanInstance"/>
+	
+	<!-- Prototype scope bean -->
+	<bean class="com.chapter2.PrototypeBean" scope="prototype" id="prototypeBean"/>
+	
+	<bean class="com.chapter2.SingletonBean" scope="singleton" id="singleton">
+		<property name="prototype" ref="prototypeBean"/>
+	</bean>
+	
+	<!-- ApplicationCOntext Aware Singleton Bean -->
+	<bean class="com.chapter2.ApplicationContextAwareSingleton" id="appAwareSingleton">
+		<property name="prototypeBean" ref="prototypeBean"></property>
+	</bean>
+	
+	<!-- Method Injection -->
+	<bean class="com.chapter2.MethodInjectionSingleton" scope="singleton">
+		<lookup-method name="createPrototype" bean="prototypeBean"/>	
+	</bean>
+	
+	
+</beans>

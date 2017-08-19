@@ -1,0 +1,28 @@
+A bean is an Object that makes the backbone of Spring application
+In order for an Object to be called Spring bean the object must be instantiated and retrieved from the IOC container
+
+good candidate for being a bean
+-------------------------------
+
+1) Objects that cost a lot to create and used across the application. Ex - Repositories, Services
+2) A bean is managed by IOC container
+3) Beans are by default Singleton
+
+
+Not suitable being a Bean
+-------------------------
+
+Domain Objects like Book, Order, Product
+
+Bean Scopes 
+-----------
+
+1) Singleton - default behavior. 
+2) prototype - an instance is created everytime getBean is called
+3) request (web only)
+4) session - (web only)
+
+There are 2 ways to resolve the issue of bean scope prototype from bean scope Singleton - 
+
+Make the singleton Bean implement ApplicationContextAware - check the examples
+Use method injection to resolve this issue.

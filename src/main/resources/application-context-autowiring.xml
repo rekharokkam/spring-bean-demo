@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!--  bean class="com.chapter2.autowiring.BeanB" id="beanB" autowire="byType"/ --> <!-- Spring will pick a Bean from here that's of the type the setter method accepts -->
+	
+	<bean class="com.chapter2.autowiring.BeanB" id="beanB" autowire="byName"/> <!-- Spring will look for a bean with id that matches the name of argument in setter method. It mostly looks for name that follows set<name> -->
+
+	<bean class="com.chapter2.autowiring.BeanD" id="beanD"/>
+	
+	<bean class="com.chapter2.autowiring.BeanD" id="beanD2"/>
+	
+	<bean class="com.chapter2.autowiring.BeanC" id="beanC"/>
+
+	<!--  bean class="com.chapter2.autowiring.BeanA" autowire="default"--><!-- autowire default is if the dependent class has no arg constructor then autowiring is by constructor, if the bean has no no-arg constructor then autowiring is byType -->
+	
+	<!-- 
+		IOC container always picks the constructor with most arguments it can satisfy.  considering BeanA constructors - public BeanA (BeanB beanB), public BeanA (BeanB beanB, BeanC beanC), public BeanA (BeanB beanB, BeanC beanC, BeanR beanR)
+		IOC Container will pick - public BeanA (BeanB beanB, BeanC beanC) Since thats the constructor with most arguments it can satisfy with the beans available in the container
+	--> 
+	<bean class="com.chapter2.autowiring.BeanA" autowire="constructor">
+		<constructor-arg type="com.chapter2.autowiring.BeanB" ref="beanB"/>
+		<constructor-arg type="com.chapter2.autowiring.BeanC" ref="beanC"/>
+	</bean>
+</beans>
