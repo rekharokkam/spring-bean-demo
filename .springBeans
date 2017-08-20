@@ -8,8 +8,13 @@
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
 		<config>src/main/resources/application-context-collection.xml</config>
-		<config>src/main/resources/application-context-autowiring.xml</config>
 		<config>src/main/resources/application-context-annotations.xml</config>
+		<config>src/main/resources/application-context-xmlautowiring.xml</config>
+		<config>src/main/resources/application-context-classautowiring.xml</config>
+		<config>src/main/resources/application-context-qualifier.xml</config>
+		<config>src/main/resources/application-context-resource.xml</config>
+		<config>src/main/resources/application-context-componentscan.xml</config>
+		<config>src/main/resources/application-context-scope.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

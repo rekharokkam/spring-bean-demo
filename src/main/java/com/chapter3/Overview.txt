@@ -3,3 +3,14 @@ Recommended approach when to use Annotation or XML
 Use XML when working with 3rd party OR the objects that you do not have control over.
 
 Classes that we are creating that becomes bean use Annotation
+
+Autowire is always "byType"
+
+First Autowire which is byType applies then Qualifier is used to resolve any ambigous matches in the IOC container.
+
+Component Scaning and Bean Annotation - This approach allows us to create only one instance of a bean BUT XML configuration allows us to use more than one instance of the bean.
+Meaning I could create BeanB multiple instances through more than 1 <bean id="" class="BeanB"/>
+
+When @Lazy annotation is used then All components/Beans are not instantiated as Normal Only those beans that are involved are instantiated. 
+Ex - com.chapter3.lazy chapter Only BeanA and BeanC are used so BeanB is not instantiated. 
+If we remove the lazy annotation all beans are instantiated by default by IOC Container.

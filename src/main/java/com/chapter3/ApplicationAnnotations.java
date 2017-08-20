@@ -10,5 +10,7 @@ public class ApplicationAnnotations {
 		
 		BeanA beanA = context.getBean(BeanA.class);
 		System.out.println("The property : " + beanA.getMyProperty());
+		
+		((ClassPathXmlApplicationContext)context).close();
 	}
 }
