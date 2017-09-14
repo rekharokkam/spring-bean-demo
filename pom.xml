@@ -1,10 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.learning.spring</groupId>
   <artifactId>spring-bean-demo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
   <name>spring-bean-demo</name>
   <description>A demo for spring beans</description>
+  <url>https://www.safaribooksonline.com/library/view/learning-spring-programming/9781771372879/</url>
+  
+  
   <dependencies>
   	<dependency>
   		<groupId>org.springframework</groupId>
