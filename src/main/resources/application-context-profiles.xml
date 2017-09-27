@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<beans profile="DEV">
+		<bean id="beanA" class="com.chapter5.additionalcontainderfeatures.profiles.BeanA">
+			<property name="configParameter" value="DEV" />
+		</bean>
+	</beans>
+
+	<beans profile="TEST">
+		<bean id="beanA" class="com.chapter5.additionalcontainderfeatures.profiles.BeanA">
+			<property name="configParameter" value="TEST" />
+		</bean>
+	</beans>
+
+	<beans profile="PROD">
+		<bean id="beanA" class="com.chapter5.additionalcontainderfeatures.profiles.BeanA">
+			<property name="configParameter" value="PROD" />
+		</bean>
+	</beans>
+
+</beans>

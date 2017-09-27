@@ -1,1 +1,17 @@
-It is not recommended to use Java configuration with properties file as it to too cumbersome and not well documented. 
+It is not recommended to use Java configuration with properties file as it to too cumbersome and not well documented.
+
+How Spring parses the configuration
+-----------------------------------
+
+Spring reads each bean definition and constructs it. Refer to the context file "appilcation-context-bean-lifecycle1.xml"
+It reads and constructs BeanA and then BeanB using the constructor.
+After constructing the bean it injects the properties of the bean. 
+First it injects BeanB message property and then injects the instance of beanB into beanA.
+A bean's "destroy-method" is invoked when the applicationContext that initialized that bean is closed. Refer to the class - "ApplicationBeanLifeCycle1"
+
+For running a specific profile add "VM arguments" - "-Dspring.profiles.active=PROD" in eclipse. Refer to the class "ApplicationProfiles.java" and "application-context-profiles.xml"
+
+
+
+
+ 

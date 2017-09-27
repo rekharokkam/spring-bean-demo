@@ -20,6 +20,8 @@
 		<config>src/main/resources/config/application-context-resource-resolver2.xml</config>
 		<config>src/main/resources/config/application-context-multiple-context-files1.xml</config>
 		<config>src/main/resources/application-context-multiple-context-files2.xml</config>
+		<config>src/main/resources/application-context-bean-lifecycle-xml-method.xml</config>
+		<config>src/main/resources/application-context-profiles.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
