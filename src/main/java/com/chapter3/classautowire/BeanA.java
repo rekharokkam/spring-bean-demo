@@ -8,6 +8,9 @@ public class BeanA {
 	
 	private BeanC beanC;
 
+	/*
+	 * By default required is true. Setting it to false indicates to the IOC container not to throw exception if for some reason BeanB is not available during the initialization of BeanA
+	 */
 	@Autowired (required=false)
 	public BeanA (BeanB beanB){
 		System.out.println("Inside the constructor of BeanA : public BeanA (BeanB beanB)");

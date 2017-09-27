@@ -1,0 +1,7 @@
+BY default beans scope is singleton. 
+Use AutoWire annotation for either constructor or setter method OR the attribute itself
+
+Normally we use @Component, @ComponentScan and @Autowired are used with the beans we create.
+Explicit Type of wiring with Java is normally used with third party components like Hibernate session manager. 
+All the configurations that can be used with Bean configuration like @Qualifier, @Lazy,... can be used with Java Annotations as well.
+Java Based configuration is not a 100% replacement for xml based configuration. So it should always be possible to fall back on the XML configuration.

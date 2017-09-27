@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 2 ways of importing a context file -->
+	<!-- import resource="classpath:application-context-multiple-context-files2.xml"/ -->
+	<!--  import resource="../application-context-multiple-context-files2.xml"/-->
+	
+	<!-- We can altogether remove the import as 
+		Instead of importing one context file in another context file, we can pass the 2 xml files as arguments to ClassPathXmlApplicationContext -->
+	
+
+	<bean id="beanA" class="com.chapter5.additionalcontainderfeatures.multiplecontextfiles.BeanA">
+		<property name="beanB" ref="beanB"/>
+	</bean>
+	
+</beans>

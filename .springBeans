@@ -15,6 +15,11 @@
 		<config>src/main/resources/application-context-resource.xml</config>
 		<config>src/main/resources/application-context-componentscan.xml</config>
 		<config>src/main/resources/application-context-scope.xml</config>
+		<config>src/main/resources/application-context-mixing-configuration-types.xml</config>
+		<config>src/main/resources/config/application-context-resource-resolver1.xml</config>
+		<config>src/main/resources/config/application-context-resource-resolver2.xml</config>
+		<config>src/main/resources/config/application-context-multiple-context-files1.xml</config>
+		<config>src/main/resources/application-context-multiple-context-files2.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

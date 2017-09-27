@@ -1,0 +1,1 @@
+It is not recommended to use Java configuration with properties file as it to too cumbersome and not well documented. 
