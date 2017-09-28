@@ -1,0 +1,33 @@
+Where do we persist data
+------------------------
+File IO
+Message Queue
+No SQL Database
+Object Databases
+Relational Database
+
+How do we persist Data with Java
+-------------------------------
+Java Database Connectivity [JDBC] - basic - Obtain a connection, working with statement
+Java Persistence Architecture [JPA] - similar to an ORM but it is a standardized approach to use Object relational mapper
+Java Transaction API [JTA] - working with a full blown application server implementation to persist data. With JTA we can persist data to multiple data sources at the same time
+Java Database Objects [JDO] - writing to an Object database
+Object Relational Mapping [ORM] - ORM and JAP are very closely tied - Hibernate and eclipseLink
+
+What roles does Spring play 
+---------------------------
+Spring provides "Data Access Support".
+
+
+Persist Object model into Data Model
+
+Persistence Structure
+---------------------
+
+Refer to the pic - Persitence_Structure.jpg.
+When we use repositories we often program to an interface. Ex - if there is a book table then 
+Book - Entity
+BookRepository - Interface that defines different operations on the book table
+One Implementation of BookRepository could be to persist in the database, another implementation could be persist in the file system.
+Spring Data Support objects help us persist the information. Spring Data Support Objects are - templates for JDBC, JPA.
+ 
