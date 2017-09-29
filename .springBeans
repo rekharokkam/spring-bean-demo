@@ -22,6 +22,7 @@
 		<config>src/main/resources/application-context-multiple-context-files2.xml</config>
 		<config>src/main/resources/application-context-bean-lifecycle-xml-method.xml</config>
 		<config>src/main/resources/application-context-profiles.xml</config>
+		<config>src/main/resources/applcation-context-jdbc-with-templates.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

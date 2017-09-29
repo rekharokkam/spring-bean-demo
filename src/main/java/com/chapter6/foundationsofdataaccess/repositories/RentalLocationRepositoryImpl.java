@@ -1,6 +1,6 @@
-package com.chapter6.foundationsofdataaccess.data.entities;
+package com.chapter6.foundationsofdataaccess.repositories;
 
-import com.chapter6.foundationsofdataaccess.repositories.RentalLocationRepo;
+import com.chapter6.foundationsofdataaccess.data.entities.RentalLocation;
 
 public class RentalLocationRepositoryImpl implements RentalLocationRepo
 {

@@ -36,5 +36,25 @@
   		<artifactId>mysql-connector-java</artifactId>
   		<version>5.1.39</version>
   	</dependency>
+  	<dependency>
+  		<groupId>org.springframework</groupId>
+  		<artifactId>spring-jdbc</artifactId>
+  		<version>4.3.11.RELEASE</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>commons-pool</groupId>
+  		<artifactId>commons-pool</artifactId>
+  		<version>20030825.183949</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>commons-dbcp</groupId>
+  		<artifactId>commons-dbcp</artifactId>
+  		<version>20030825.184428</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>commons-collections</groupId>
+  		<artifactId>commons-collections</artifactId>
+  		<version>20040616</version>
+  	</dependency>
   </dependencies>
 </project>

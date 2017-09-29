@@ -1,0 +1,8 @@
+Connections are expensive to produce as they demand a lot of resources.
+All of the Spring Data Access Components obtain their connections by using an implementation of DataSource interface. It's basically a ConnectionFactory.
+
+RowMapper invokes once per row
+ResultSetExtractor invokes once per resultset 
+
+Any time u want to perform insert, update or delete statement then we should use "update" method on the jdbctemplate
+  
