@@ -1,0 +1,8 @@
+Repository - is an interface that we create that defines the query methods and also has the ability to perform the CRUD Operations.
+Spring Data JPA will provide the implementation.
+
+to get this module working I added beow dependencies
+spring-data-commons
+spring-data-jpa
+org.hibernate hibernate-entitymanager - pick 4.x series to be compatible with Spring 5.0
+remove spring-jdbc 

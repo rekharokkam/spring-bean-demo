@@ -5,4 +5,10 @@ RowMapper invokes once per row
 ResultSetExtractor invokes once per resultset 
 
 Any time u want to perform insert, update or delete statement then we should use "update" method on the jdbctemplate
+
+To get these working I added the dependencies - 
+spring-jdbc
+commons-pool
+commons-dbcp
+commons-collections
   

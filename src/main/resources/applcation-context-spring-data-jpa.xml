@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:repository="http://www.springframework.org/schema/data/repository"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.8.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/data/repository http://www.springframework.org/schema/data/repository/spring-repository-1.11.xsd">
+	
+	<!-- Bean for basic JDBC without connection pool -->
+	<!--  bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="url" value="jdbc:mysql://localhost:3306/practice"/>
+		<property name="username" value="spring"/>
+		<property name="password" value="spring"/>
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+	</bean -->
+	
+	<!-- DataSource with connection pool -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url" value="jdbc:mysql://localhost:3306/practice"/>
+		<property name="username" value="spring"/>
+		<property name="password" value="spring"/>
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+	
+	</bean>
+	
+	<!-- SPring provides this class. Purpose of this class is to create a factory that will provide us with instances of EntityManager. entityManagers are the foundation of maintaining
+	persistence context with in our JPA -->
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="persistenceUnitName" value="spring-examples"/> <!-- These properties helps us not to provide persistence-context.xml/persistence.xml to configure out entity manager -->
+		<property name="packagesToScan" value="com.chapter8.springdata"/><!-- packages to scan for Entities -->
+		<property name="jpaVendorAdapter"> <!-- this property allow us to specify hibernate configuration properties we would like to pass to our persistence provider  -->
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="showSql" value="true"/>
+				<property name="database" value="MYSQL"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory"/>
+	</bean>
+	
+	<tx:annotation-driven/> <!-- we will use annotations to indicates where transactions begin in our application. Way to declaratively specify within our application-->
+	
+	<jpa:repositories base-package="com.chapter8.springdata.data.repositories"/>
+	
+	<context:component-scan base-package="com.chapter8.springdata"/>
+
+</beans>
