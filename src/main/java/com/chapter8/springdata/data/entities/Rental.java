@@ -9,8 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-@Entity (name="RENTAL")
+@Entity 
+@Table (name="RENTAL")
 public class Rental
 {
 	@Id
