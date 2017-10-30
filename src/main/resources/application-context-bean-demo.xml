@@ -12,7 +12,9 @@
 	<bean class="com.chapter2.BeanA" id="bean1"/>
 	<bean class="com.chapter2.BeanA" id="bean2"/>
 	
-	<!-- A bean can have a name. id attribute has certain restrictions XML mandates BUT those are not applicable to name attribute. Also there can be more than 1 name for the same bean. Bean can be instantiated either by id or by name property-->
+	<!-- A bean can have a name. id attribute has certain restrictions XML mandates BUT those are not applicable to name attribute. 
+	Also there can be more than 1 name for the same bean. 
+	Bean can be instantiated either by id or by name property-->
 	<bean class="com.chapter2.BeanA" id="bean3" name="_beanA _beanB"/>
 	
 	<!-- Testing constructor beans -->
@@ -41,7 +43,7 @@
 	<bean class="com.chapter2.OuterObj" id="outerObjRef">
 		<constructor-arg type="com.chapter2.ArgumentObj" ref="argumentObj"/>
 		
-		<!-- Another of usong ref tag -->
+		<!-- Another use of ref tag -->
 		<!-- Inside the constructor-arg element instead of as an attribute -->
 		<!-- ref bean="argumentObj" -->
 		
@@ -51,7 +53,8 @@
 	</bean>
 	
 	<!-- Setter Injection -->
-	<!-- Constructor Injection is good when the Bean needs to have all the dependencies resolved when it is created. Setter Injection is good since the dependencies can be delayed until needed. -->
+	<!-- Constructor Injection is good when the Bean needs to have all the dependencies resolved when it is created. 
+	Setter Injection is good since the dependencies can be delayed until needed. -->
 	<bean id = "attributeObj" class="com.chapter2.AttributeObj"/>
 	
 	<bean class="com.chapter2.SetterObj">

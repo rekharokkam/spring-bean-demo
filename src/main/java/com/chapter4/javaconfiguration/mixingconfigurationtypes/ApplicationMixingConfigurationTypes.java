@@ -6,7 +6,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class ApplicationMixingConfigurationTypes
 {
-	@SuppressWarnings ("resource")
 	public static void main(String[] args)
 	{
 //		ApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);//Use this when we are basing our configuration mainly upon Java Configuration

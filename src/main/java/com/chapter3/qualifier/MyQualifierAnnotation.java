@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 @Target ({ElementType.FIELD, ElementType.PARAMETER, ElementType.METHOD})
-@Retention (RetentionPolicy.RUNTIME) //Indicatees that this is a runtime annotation
+@Retention (RetentionPolicy.RUNTIME) //Indicates that this is a runtime annotation
 @Qualifier
 public @interface MyQualifierAnnotation {
 
